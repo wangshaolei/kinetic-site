@@ -35,7 +35,7 @@ python3 tools/build.py ../rep-counter/app/lib/l10n
 | 删除账号页文案 | `tools/legal_text.py` |
 | 运营方、邮箱、生效日期 | `tools/build.py` 顶部，要和 App 的 `AppLegal` 一致 |
 | 「最后更新」日期、sitemap 日期 | `tools/build.py` 的 `UPDATED` |
-| 下载按钮（已开启，2026-11-03）；改成「即将上架」 | `tools/build.py` 的 `PLAY_LIVE` |
+| 下载按钮（已开启，用 `assets/badges/` 里的 Google 官方徽章）；改回「即将上架」 | `tools/build.py` 的 `PLAY_LIVE` |
 | 样式 / 首页动效 | `assets/site.css` / `assets/home.js` |
 
 App 里改了动作的默认角度（`app/lib/domain/models/exercise.dart`），`tools/content.py` 的 `EXERCISES` 要同步改。
@@ -47,7 +47,7 @@ App 里改了动作的默认角度（`app/lib/domain/models/exercise.dart`），
 | `assets/shot-1~4.jpg` | 英文首页截图、结构化数据 | rep-counter `docs/store/listing/screenshots/en-US/`，缩到 540×960 |
 | `assets/zh/shot-1~4.jpg`、`assets/zh-hant/shot-1~4.jpg` | 中文首页截图 | 同上 `zh-CN/`、`zh-TW/` |
 | `assets/og-1200x630.png`、`assets/zh/og-1200x630.png` | 分享卡片图（繁中没有单独的图时用简中的） | 英文是设计稿，简中由商店置顶大图加边得到 |
-| `assets/badges/google-play-{en,zh,hant}.png` | 上架后的官方下载徽章（可选，没有时显示文字按钮） | https://play.google.com/intl/en_us/badges/ |
+| `assets/badges/google-play-{en,zh,hant}.png` | Google Play 官方下载徽章（删掉则显示文字按钮） | https://play.google.com/intl/en_us/badges/ |
 
 ## 本地预览
 

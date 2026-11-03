@@ -40,7 +40,9 @@ YEAR = 2026
 UPDATED = "2026-11-03"
 
 # 正式版上架后改成 True：「即将上架」换成 Google Play 下载按钮。
-# 有 assets/badges/google-play-{en,zh,hant}.png（Google 官方徽章）时用图片，没有时用文字按钮。
+# 有 assets/badges/google-play-{en,zh,hant}.png 时用图片，没有时用文字按钮。图片是 Google 官方徽章
+# （play.google.com/intl/en_us/badges/static/images/badges/{en,zh-cn,zh-tw}_badge_web_generic.png），
+# 只裁掉了四周的透明边，三种语言的徽章才一样大；按徽章规范不能改色、变形。
 PLAY_LIVE = True
 
 BASE = "https://kinetic.lencoder.com"
@@ -112,7 +114,7 @@ def get_button(lang: str, medium: str) -> str:
     badge = ROOT / "assets/badges" / f"google-play-{lang}.png"
     if badge.exists():
         return (f'<a class="play-badge" href="{url}"><img src="/assets/badges/{badge.name}" '
-                f'alt="{esc(UI["get"][lang])}" height="56"></a>')
+                f'alt="{esc(UI["get"][lang])}" width="188" height="56"></a>')
     return f'<a class="btn btn-pri" href="{url}">{UI["get"][lang]}</a>'
 
 
