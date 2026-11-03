@@ -46,7 +46,7 @@ App 里改了动作的默认角度（`app/lib/domain/models/exercise.dart`），
 |---|---|---|
 | `assets/shot-1~4.jpg` | 英文首页截图、结构化数据 | rep-counter `docs/store/listing/screenshots/en-US/`，缩到 540×960 |
 | `assets/zh/shot-1~4.jpg`、`assets/zh-hant/shot-1~4.jpg` | 中文首页截图 | 同上 `zh-CN/`、`zh-TW/` |
-| `assets/og-1200x630.png`、`assets/zh/og-1200x630.png` | 分享卡片图（繁中没有单独的图时用简中的） | 英文是设计稿，简中由商店置顶大图加边得到 |
+| `assets/og-1200x630.png`、`assets/zh/og-1200x630.png`、`assets/zh-hant/og-1200x630.png` | 分享卡片图（某种语言没有时退回简中、英文） | 英文是设计稿；简中由商店置顶大图加边得到；繁中是 rep-counter `docs/store/listing/feature-graphic/og-zh-hant-1200x630.png` |
 | `assets/badges/google-play-{en,zh,hant}.png` | Google Play 官方下载徽章（删掉则显示文字按钮） | https://play.google.com/intl/en_us/badges/ |
 
 ## 本地预览
