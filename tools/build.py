@@ -41,7 +41,7 @@ UPDATED = "2026-11-03"
 
 # 正式版上架后改成 True：「即将上架」换成 Google Play 下载按钮。
 # 有 assets/badges/google-play-{en,zh,hant}.png（Google 官方徽章）时用图片，没有时用文字按钮。
-PLAY_LIVE = False
+PLAY_LIVE = True
 
 BASE = "https://kinetic.lencoder.com"
 PLAY = "https://play.google.com/store/apps/details?id=com.lencoder.sport.ai"

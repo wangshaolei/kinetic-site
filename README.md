@@ -35,7 +35,7 @@ python3 tools/build.py ../rep-counter/app/lib/l10n
 | 删除账号页文案 | `tools/legal_text.py` |
 | 运营方、邮箱、生效日期 | `tools/build.py` 顶部，要和 App 的 `AppLegal` 一致 |
 | 「最后更新」日期、sitemap 日期 | `tools/build.py` 的 `UPDATED` |
-| 上架后换成下载按钮 | `tools/build.py` 的 `PLAY_LIVE = True` |
+| 下载按钮（已开启，2026-11-03）；改成「即将上架」 | `tools/build.py` 的 `PLAY_LIVE` |
 | 样式 / 首页动效 | `assets/site.css` / `assets/home.js` |
 
 App 里改了动作的默认角度（`app/lib/domain/models/exercise.dart`），`tools/content.py` 的 `EXERCISES` 要同步改。
