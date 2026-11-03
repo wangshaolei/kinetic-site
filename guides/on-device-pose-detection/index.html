@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rep Counting Without Uploading Video – How On-device Pose Detection Works</title>
+<meta name="description" content="KINETIC counts reps without uploading video. Here is what happens to each camera frame on your phone, and exactly what data leaves the device.">
+<link rel="canonical" href="https://kinetic.lencoder.com/guides/on-device-pose-detection/">
+<link rel="alternate" hreflang="en" href="https://kinetic.lencoder.com/guides/on-device-pose-detection/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kinetic.lencoder.com/zh/guides/on-device-pose-detection/">
+<link rel="alternate" hreflang="zh-Hant" href="https://kinetic.lencoder.com/zh-hant/guides/on-device-pose-detection/">
+<link rel="alternate" hreflang="x-default" href="https://kinetic.lencoder.com/guides/on-device-pose-detection/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="KINETIC">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://kinetic.lencoder.com/guides/on-device-pose-detection/">
+<meta property="og:title" content="Rep Counting Without Uploading Video – How On-device Pose Detection Works">
+<meta property="og:description" content="KINETIC counts reps without uploading video. Here is what happens to each camera frame on your phone, and exactly what data leaves the device.">
+<meta property="og:image" content="https://kinetic.lencoder.com/assets/og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06080B">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://kinetic.lencoder.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Guides",
+   "item": "https://kinetic.lencoder.com/guides/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "How on-device pose detection works",
+   "item": "https://kinetic.lencoder.com/guides/on-device-pose-detection/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Rep Counting Without Uploading Video – How On-device Pose Detection Works",
+ "description": "KINETIC counts reps without uploading video. Here is what happens to each camera frame on your phone, and exactly what data leaves the device.",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "shaolei wang"
+ },
+ "dateModified": "2026-11-03",
+ "mainEntityOfPage": "https://kinetic.lencoder.com/guides/on-device-pose-detection/",
+ "about": {
+  "@type": "MobileApplication",
+  "name": "KINETIC: AI Rep Counter"
+ }
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<div class="langbar" id="langbar"><span data-v="zh" hidden>本页为英文版。<a href="/zh/guides/on-device-pose-detection/">查看简体中文版</a></span><span data-v="hant" hidden>本頁為英文版。<a href="/zh-hant/guides/on-device-pose-detection/">查看繁體中文版</a></span></div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="KINETIC"><svg width="26" height="34" viewBox="32 22 48 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="44" cy="33" r="6.5" stroke="#C6FF3D" stroke-width="5"/><path d="M45 41 L50 57 L72 62 L62 80 M47 46 L64 44" stroke="#C6FF3D" stroke-width="5"/><path d="M65.2 60.4 A7 7 0 0 1 68.6 67.6" stroke="#2EE6FF" stroke-width="2.2" stroke-dasharray="2.4 2"/><g fill="#06080B" stroke="#C6FF3D" stroke-width="2.4"><circle cx="50" cy="57" r="3.5"/><circle cx="72" cy="62" r="3.5"/><circle cx="62" cy="80" r="3.5"/></g></svg>KINETIC<b>//</b></a>
+    <ul><li><a href="/#how">How it counts</a></li><li><a href="/exercises/">Exercises</a></li><li><a href="/#privacy">Privacy</a></li><li><a href="/guides/">Guides</a></li><li><a href="/faq/">FAQ</a></li></ul>
+    <nav class="langs" aria-label="Language"><a href="/guides/on-device-pose-detection/" lang="en" aria-current="page">EN</a><a href="/zh/guides/on-device-pose-detection/" lang="zh-Hans">简</a><a href="/zh-hant/guides/on-device-pose-detection/" lang="zh-Hant">繁</a></nav>
+  </div>
+</header>
+<main id="main">
+<article class="page">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span>›</span> <a href="/guides/">Guides</a> <span>›</span> How on-device pose detection works</nav>
+<p class="eyebrow">GUIDE</p>
+<h1>How on-device pose detection works</h1>
+<div class="answer"><p>Each camera frame is analysed on your phone by Google ML Kit, turned into body landmark positions and then discarded. KINETIC counts reps from joint angles calculated from those landmarks. No video is recorded or uploaded, and workout records stay on the phone.</p></div>
+<h2>What happens to each frame</h2>
+<ol>
+<li><b>The camera captures a frame.</b> Frames that arrive while the phone is still busy are skipped rather than queued, so counting never lags behind you.</li>
+<li><b>ML Kit finds your body.</b> Google ML Kit's pose detection model, which ships inside the app, locates 33 body landmarks such as shoulders, elbows, hips, knees and ankles.</li>
+<li><b>The frame is discarded.</b> Only the landmark positions are kept, as numbers. The picture itself is never written to storage.</li>
+<li><b>Joint angles are calculated.</b> For a squat, KINETIC measures the angle at your knee between thigh and shin. Positions are smoothed to reduce jitter.</li>
+<li><b>A rep is counted.</b> When the angle passes the completion threshold and comes back to the start position, the counter goes up by one.</li>
+</ol>
+<h2>What leaves your phone</h2>
+<div class="tbl-wrap"><table class="tbl">
+<tr><th>Data</th><th>Leaves the phone?</th></tr>
+<tr><td>Camera video and images</td><td>Never</td></tr>
+<tr><td>Workout records</td><td>Never. Stored on this phone only, per account</td></tr>
+<tr><td>Google account name, email, photo</td><td>Never sent to our servers. Stored on this phone after you sign in</td></tr>
+<tr><td>Anonymous usage stats and crash reports (Google Firebase)</td><td>Yes, unless you turn them off in Settings. No video, account or email</td></tr>
+<tr><td>ML Kit anonymous usage stats (model version, run time)</td><td>Yes, sent to Google by ML Kit. Never images</td></tr>
+</table></div>
+<p>Because detection runs on the phone, counting also works without an internet connection.</p>
+<p>The full details are in the <a href="/privacy.html">privacy policy</a>.</p>
+<div class="cta-box"><p>Free on Android. Video never leaves your phone.</p><span class="soon"><i></i>Coming soon to Google Play</span></div>
+<h2>Guides</h2>
+<div class="related"><a href="/guides/phone-placement/">Where to put your phone<span>Phone setup for all 11 exercises, plus lighting tips.</span></a><a href="/guides/100-push-ups-a-day/">100 push-ups a day<span>Split it into sets, build up week by week, track it automatically.</span></a><a href="/guides/30-day-squat-challenge/">30-day squat challenge<span>A day-by-day plan from 20 to 130 squats, with a rest day every fourth day.</span></a></div>
+<div class="meta"><p>Last updated: 2026-11-03 · Author: shaolei wang</p><p>KINETIC is a fitness tool, not a medical device. Talk to a doctor before starting a new exercise program, and stop if anything hurts.</p></div>
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 KINETIC · operated by shaolei wang</span>
+    <nav aria-label="Footer"><a href="/exercises/">Exercises</a><a href="/guides/">Guides</a><a href="/faq/">FAQ</a><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of use</a><a href="/delete-account.html">Delete account and data</a></nav>
+  </div>
+</footer>
+<script src="/assets/site.js"></script>
+</body>
+</html>

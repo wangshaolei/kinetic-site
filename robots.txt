@@ -1,0 +1,5 @@
+# 允许所有爬虫，包括 AI 搜索（OAI-SearchBot、PerplexityBot、Claude-SearchBot 等）
+User-agent: *
+Allow: /
+
+Sitemap: https://kinetic.lencoder.com/sitemap.xml

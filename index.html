@@ -1,95 +1,393 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KINETIC</title>
-<meta name="title-en" content="KINETIC">
-<meta name="title-zh" content="KINETIC">
-<meta name="title-hant" content="KINETIC">
-<meta name="description" content="KINETIC uses your phone's camera to count reps for push-ups, squats and more. Video stays on your phone.">
-<link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="assets/site.css">
-<script src="assets/lang.js"></script>
+<script>(function(){var m=/[?&]lang=(zh|hant)(&|$)/.exec(location.search);if(m)location.replace((m[1]==='zh'?'/zh':'/zh-hant')+location.pathname+location.hash);})();</script>
+<title>KINETIC – AI Rep Counter for Push-ups, Squats &amp; More</title>
+<meta name="description" content="Free Android app that counts your reps with the phone camera. 11 exercises, pose detection on-device, video never uploaded.">
+<link rel="canonical" href="https://kinetic.lencoder.com/">
+<link rel="alternate" hreflang="en" href="https://kinetic.lencoder.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kinetic.lencoder.com/zh/">
+<link rel="alternate" hreflang="zh-Hant" href="https://kinetic.lencoder.com/zh-hant/">
+<link rel="alternate" hreflang="x-default" href="https://kinetic.lencoder.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KINETIC">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://kinetic.lencoder.com/">
+<meta property="og:title" content="KINETIC – AI Rep Counter">
+<meta property="og:description" content="Your camera counts every rep. Video stays on your phone.">
+<meta property="og:image" content="https://kinetic.lencoder.com/assets/og-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06080B">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "MobileApplication",
+ "name": "KINETIC: AI Rep Counter",
+ "alternateName": [
+  "KINETIC",
+  "KINETIC：AI 运动计数",
+  "KINETIC：AI 運動計數"
+ ],
+ "operatingSystem": "Android",
+ "applicationCategory": "HealthApplication",
+ "inLanguage": [
+  "en",
+  "zh-Hans",
+  "zh-Hant"
+ ],
+ "description": "KINETIC: AI Rep Counter is a free Android app that uses your phone camera to count reps for 11 exercises. Pose detection runs on-device; video is never uploaded.",
+ "url": "https://kinetic.lencoder.com/",
+ "installUrl": "https://play.google.com/store/apps/details?id=com.lencoder.sport.ai",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "USD"
+ },
+ "author": {
+  "@type": "Person",
+  "name": "shaolei wang",
+  "email": "leishaolen@gmail.com"
+ },
+ "screenshot": [
+  "https://kinetic.lencoder.com/assets/shot-1.jpg",
+  "https://kinetic.lencoder.com/assets/shot-2.jpg",
+  "https://kinetic.lencoder.com/assets/shot-3.jpg",
+  "https://kinetic.lencoder.com/assets/shot-4.jpg"
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How does KINETIC count reps?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "KINETIC tracks your joints with the phone camera and measures joint angles. A squat counts when your knee angle drops to 110° or less and comes back above 160°. Pose detection runs on the phone."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is my video uploaded?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Video is processed on your phone and never recorded or uploaded. Workout records are stored only on this device."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "The count seems off. What can I do?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Keep your whole body in frame with good lighting. Face the camera for squats; for push-ups, put the phone on the floor beside you so it sees you from the side. You can also adjust the angle thresholds in the app. See phone setup for every exercise."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do I need to sign in?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. Guest mode counts reps for every exercise but doesn't save workouts. Sign in with Google to save workouts on this phone, track check-ins and earn badges."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Will my workouts move to a new phone?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Workouts are stored only on your phone, with no cloud backup. You can export them from Settings › Data & storage and keep the file yourself."
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
-<header class="top"><div class="wrap">
-<a class="brand" href="index.html"><img src="assets/icon-512.png" alt="">KINETIC</a>
-<div class="langs"><button data-set="en">EN</button><button data-set="zh">简</button><button data-set="hant">繁</button></div>
-</div></header>
-<main><div class="wrap">
-<div data-l="en">
-<div class="hero-block">
-<img src="assets/icon-512.png" alt="KINETIC">
-<div>
-<p class="eyebrow">AI REP COUNTER</p>
-<h1>Just move.
-AI counts for you.</h1>
-<span class="badge">Coming soon to Google Play</span>
-</div>
-</div>
-<p>Turn on the camera and AI watches your joint angles: each good rep counts +1, and it tells you when you're not there yet. 11 exercises so far, including squats, push-ups, lunges and sit-ups, with more coming.</p>
-<div class="grid">
-<div class="card"><h3>11 exercises, counted for you</h3><p>Squats, push-ups, lunges, sit-ups and more. Each good rep counts +1, and it tells you when you're not there yet.</p></div>
-<div class="card"><h3>Video stays on your phone. Records stay on this device.</h3><p>Pose tracking runs on the phone and workout records are never uploaded. Only anonymous usage stats and crash reports are sent, and you can turn them off in Settings.</p></div>
-<div class="card"><h3>Check-ins, badges, hero cards</h3><p>Sign in to keep workouts on your phone, fill your calendar and earn badges. Share a hero card after each workout.</p></div>
-<div class="card"><h3>No sign-in needed</h3><p>Guest mode tracks and counts too. It just doesn't save your workouts.</p></div>
-</div>
-<h2 id="support">Help and contact</h2>
-<p>Questions, problems or ideas? Email <a href="mailto:leishaolen@gmail.com">leishaolen@gmail.com</a> and we'll reply within 7 business days.</p>
-<div class="section"><h3>The count seems off. What can I do?</h3><p>Make sure your whole body is in frame and the room is well lit. Face the camera for squats; for push-ups, put the phone on the floor beside you.</p></div>
-<div class="section"><h3>Will my workouts move to a new phone?</h3><p>Workouts are stored only on your phone and there's no cloud backup. You can export them in Settings › Data & storage and keep the file yourself.</p></div>
-</div>
-<div data-l="zh">
-<div class="hero-block">
-<img src="assets/icon-512.png" alt="KINETIC">
-<div>
-<p class="eyebrow">AI REP COUNTER</p>
-<h1>做就行，
-AI 帮你数</h1>
-<span class="badge">即将上架 Google Play</span>
-</div>
-</div>
-<p>打开摄像头，AI 看你的关节角度：动作标准一次自动 +1，不到位会提醒你。现在支持深蹲、俯卧撑、弓步蹲、仰卧起坐等 11 种动作，更多动作陆续上线。</p>
-<div class="grid">
-<div class="card"><h3>11 种动作自动计数</h3><p>深蹲、俯卧撑、弓步蹲、仰卧起坐等，动作标准一次 +1，不到位会提醒你。</p></div>
-<div class="card"><h3>画面不离开手机，记录只存本机</h3><p>姿态识别在本机完成，训练记录不上传。只发送匿名的使用统计和崩溃报告，可在设置里关闭。</p></div>
-<div class="card"><h3>打卡、成就和达人卡片</h3><p>登录后训练记录按账号保存在手机上，计入打卡日历和成就；练完生成达人卡片分享。</p></div>
-<div class="card"><h3>不登录也能用</h3><p>游客模式下识别和计数都能用，只是不保存训练记录。</p></div>
-</div>
-<h2 id="support">帮助与联系</h2>
-<p>使用中遇到问题、想反馈建议，请发邮件到 <a href="mailto:leishaolen@gmail.com">leishaolen@gmail.com</a>，我们会在 7 个工作日内回复。</p>
-<div class="section"><h3>计数不准怎么办？</h3><p>让头到脚全身入镜、光线充足。深蹲时正对镜头；俯卧撑时把手机放在地上、身体侧面对着镜头。</p></div>
-<div class="section"><h3>换手机后记录还在吗？</h3><p>记录只存在这台手机上，没有云端备份。可以在「设置 › 数据与存储」导出数据，自己保存文件。</p></div>
-</div>
-<div data-l="hant">
-<div class="hero-block">
-<img src="assets/icon-512.png" alt="KINETIC">
-<div>
-<p class="eyebrow">AI REP COUNTER</p>
-<h1>做就對了，
-AI 幫你數</h1>
-<span class="badge">即將上架 Google Play</span>
-</div>
-</div>
-<p>開啟相機，AI 看你的關節角度：動作標準一次自動 +1，不到位會提醒你。現在支援深蹲、伏地挺身、弓步蹲、仰臥起坐等 11 種動作，更多動作陸續上線。</p>
-<div class="grid">
-<div class="card"><h3>11 種動作自動計數</h3><p>深蹲、伏地挺身、弓步蹲、仰臥起坐等，動作標準一次 +1，不到位會提醒你。</p></div>
-<div class="card"><h3>畫面不離開手機，紀錄只存本機</h3><p>姿勢辨識在本機完成，訓練紀錄不會上傳。只傳送匿名的使用統計和當機報告，可在設定中關閉。</p></div>
-<div class="card"><h3>打卡、成就和達人卡片</h3><p>登入後訓練紀錄依帳號儲存在手機上，計入打卡日曆和成就；練完產生達人卡片分享。</p></div>
-<div class="card"><h3>不登入也能用</h3><p>訪客模式下辨識和計數都能用，只是不會儲存訓練紀錄。</p></div>
-</div>
-<h2 id="support">說明與聯絡</h2>
-<p>使用時遇到問題、想回饋建議，請寄信到 <a href="mailto:leishaolen@gmail.com">leishaolen@gmail.com</a>，我們會在 7 個工作天內回覆。</p>
-<div class="section"><h3>計數不準怎麼辦？</h3><p>讓頭到腳全身入鏡、光線充足。深蹲時正對鏡頭；伏地挺身時把手機放在地上、身體側面對著鏡頭。</p></div>
-<div class="section"><h3>換手機後紀錄還在嗎？</h3><p>紀錄只存在這台手機上，沒有雲端備份。可以在「設定 › 資料與儲存」匯出資料，自己保存檔案。</p></div>
-</div>
-</div></main>
-<footer class="bottom"><div class="wrap">
-<div class="links"><a href="privacy.html"><span data-l="en">Privacy policy</span><span data-l="zh">隐私政策</span><span data-l="hant">隱私權政策</span></a> <a href="terms.html"><span data-l="en">Terms of use</span><span data-l="zh">用户协议</span><span data-l="hant">使用者條款</span></a> <a href="delete-account.html"><span data-l="en">Delete account and data</span><span data-l="zh">删除账号与数据</span><span data-l="hant">刪除帳號與資料</span></a></div>
-<div data-l="en"><p>© 2026 KINETIC · Operated by shaolei wang · Contact: leishaolen@gmail.com</p></div>
-<div data-l="zh"><p>© 2026 KINETIC · 运营方 shaolei wang · 联系邮箱：leishaolen@gmail.com</p></div>
-<div data-l="hant"><p>© 2026 KINETIC · 營運方 shaolei wang · 聯絡信箱：leishaolen@gmail.com</p></div>
-</div></footer>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+<div class="langbar" id="langbar"><span data-v="zh" hidden>本页为英文版。<a href="/zh/">查看简体中文版</a></span><span data-v="hant" hidden>本頁為英文版。<a href="/zh-hant/">查看繁體中文版</a></span></div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="KINETIC"><svg width="26" height="34" viewBox="32 22 48 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="44" cy="33" r="6.5" stroke="#C6FF3D" stroke-width="5"/><path d="M45 41 L50 57 L72 62 L62 80 M47 46 L64 44" stroke="#C6FF3D" stroke-width="5"/><path d="M65.2 60.4 A7 7 0 0 1 68.6 67.6" stroke="#2EE6FF" stroke-width="2.2" stroke-dasharray="2.4 2"/><g fill="#06080B" stroke="#C6FF3D" stroke-width="2.4"><circle cx="50" cy="57" r="3.5"/><circle cx="72" cy="62" r="3.5"/><circle cx="62" cy="80" r="3.5"/></g></svg>KINETIC<b>//</b></a>
+    <ul><li><a href="#how">How it counts</a></li><li><a href="/exercises/">Exercises</a></li><li><a href="#privacy">Privacy</a></li><li><a href="/guides/">Guides</a></li><li><a href="/faq/">FAQ</a></li></ul>
+    <nav class="langs" aria-label="Language"><a href="/" lang="en" aria-current="page">EN</a><a href="/zh/" lang="zh-Hans">简</a><a href="/zh-hant/" lang="zh-Hant">繁</a></nav>
+  </div>
+</header>
+<main id="main">
+<nav class="rail" aria-label="Sections">
+  <a href="#top" aria-label="Top"></a><a href="#how" aria-label="How it counts"></a><a href="#exercises" aria-label="Exercises"></a>
+  <a href="#privacy" aria-label="Privacy"></a><a href="#track" aria-label="04 · Progress"></a><a href="#guest" aria-label="05 · No sign-in needed"></a>
+  <a href="#setup" aria-label="06 · Phone setup"></a><a href="#screens" aria-label="07 · Inside the app"></a><a href="#faq" aria-label="FAQ"></a><a href="#get" aria-label="Get it on Google Play"></a>
+</nav>
+<section class="hero sec" id="top" data-fx="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">AI Rep Counter · Android</p>
+      <h1 class="split" style="margin-top:16px"><span>Just</span> <span>move.</span><span class="l2"><span>AI</span> <span>counts</span> <span>for</span> <span>you.</span></span></h1>
+      <p class="lead intro rv d2">KINETIC: AI Rep Counter is a free Android app that uses your phone camera to count reps for 11 exercises. Pose detection runs on-device; video is never uploaded.</p>
+      <div class="cta rv d3">
+        <span class="soon"><i></i>Coming soon to Google Play</span>
+        <a class="btn btn-sec" href="#how">See how it counts ↓</a>
+      </div>
+      <div class="facts rv d4"><span><b>Free</b> · no ads</span><span><b>11</b> exercises</span><span><b>0</b> video uploaded</span><span>No sign-in needed</span></div>
+    </div>
+    <div class="phone" role="img" aria-label="KINETIC counting squats: a green skeleton overlay tracks the knee angle and the counter goes up with each full squat">
+      <div class="grid"></div>
+      <div class="vf" id="heroVf">
+        <div class="edge"></div><div class="run"><i></i></div>
+        <div class="cn tl"></div><div class="cn tr"></div><div class="cn bl"></div><div class="cn br"></div>
+        <svg class="skel" viewBox="0 0 272 474" aria-hidden="true"><g id="heroSkel" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" style="color:var(--c);filter:drop-shadow(0 0 7px currentColor)"></g></svg>
+        <div class="hud"><span class="n" id="heroN">0</span><div class="a" id="heroA">KNEE 180°</div></div>
+        <div class="plus1" id="heroPlus">+1</div>
+        <div class="pill" id="heroPill">Tracking…</div>
+      </div>
+      <div class="prog"><i id="heroProg"></i></div>
+      <div class="bar"><span></span><span></span><span class="p"></span></div>
+    </div>
+  </div>
+</section>
+<section class="how sec" id="how" data-fx="how">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rv">01 · How it counts</p>
+      <h2 class="rv d1" style="margin-top:14px">It watches your joint angles, not a stopwatch.</h2>
+      <p class="lead rv d2" style="margin-top:18px">KINETIC counts a squat when your knee angle drops to 110° or less and comes back above 160°. Half reps don't count, and the app tells you to go lower.</p>
+      <ol class="steps rv d3" id="steps"><li data-s="0"><div><b>Stand tall</b><span>Knee above 160°, ready position.</span></div></li><li data-s="1"><div><b>Go down to 110° or less</b><span>The frame turns green when the rep is deep enough.</span></div></li><li data-s="2"><div><b>Stand back up = +1</b><span>Above 160° again, the rep is counted.</span></div></li></ol>
+    </div>
+    <div class="gauge rv d2">
+      <div class="deg"><b id="gDeg">180°</b><span>KNEE ANGLE</span></div>
+      <div class="cnt"><b id="gCnt">0</b><span class="mono" style="display:block;font-size:12px;color:var(--text3)">REPS</span></div>
+      <svg viewBox="0 0 500 500" aria-hidden="true">
+        <g stroke="#1C2530" stroke-width="1"><line x1="40" y1="440" x2="460" y2="440"/></g>
+        <path id="gArcBg" fill="none" stroke="#1C2530" stroke-width="14" stroke-linecap="round"/>
+        <path id="gArc" fill="none" stroke="#2EE6FF" stroke-width="14" stroke-linecap="round" style="filter:drop-shadow(0 0 8px #2EE6FF)"/>
+        <g id="gTicks" font-family="JetBrains Mono" font-size="13"></g>
+        <g id="gSkel" fill="none" stroke="#E8F0F2" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></g>
+      </svg>
+    </div>
+  </div>
+</section>
+<section class="sec" id="exercises" data-fx="ex">
+  <div class="wrap">
+    <p class="eyebrow rv">02 · Exercises</p>
+    <h2 class="rv d1" style="margin-top:14px">11 exercises, counted for you.</h2>
+    <div class="tally rv d2"><b id="exCount">0</b><p class="lead" style="max-width:520px">Each one has its own joint and default angles. Too strict or too loose? Adjust the thresholds right on the skeleton in the app.</p></div>
+    <div class="ex-grid" id="exGrid">
+<a class="ex" href="/exercises/push-up-counter/" style="transition-delay:0.00s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">PUSH-UP</span></div>
+  <h3>Push-up counter</h3>
+  <div class="rule"><span>Elbow</span><span class="k">≤ 90°</span><span>single angle</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Phone on the floor, side view</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/squat-counter/" style="transition-delay:0.06s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">SQUAT</span></div>
+  <h3>Squat counter</h3>
+  <div class="rule"><span>Knee</span><span class="k">≤ 110°</span><span>≥ 160°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Face the camera</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/lunge-counter/" style="transition-delay:0.12s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">LUNGE</span></div>
+  <h3>Lunge counter</h3>
+  <div class="rule"><span>Knee</span><span class="k">≤ 100°</span><span>≥ 160°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Stand sideways</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/sit-up-counter/" style="transition-delay:0.18s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">SIT-UP</span></div>
+  <h3>Sit-up counter</h3>
+  <div class="rule"><span>Hip</span><span class="k">≤ 70°</span><span>≥ 120°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Lie down, side view</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/jumping-jack-counter/" style="transition-delay:0.24s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">JUMPING JACK</span></div>
+  <h3>Jumping jack counter</h3>
+  <div class="rule"><span>Shoulder</span><span class="k">≥ 150°</span><span>≤ 40°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Face the camera</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/glute-bridge-counter/" style="transition-delay:0.30s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">GLUTE BRIDGE</span></div>
+  <h3>Glute bridge counter</h3>
+  <div class="rule"><span>Hip</span><span class="k">≥ 165°</span><span>≤ 140°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Lie down, side view</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/leg-raise-counter/" style="transition-delay:0.36s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">LEG RAISE</span></div>
+  <h3>Leg raise counter</h3>
+  <div class="rule"><span>Hip</span><span class="k">≤ 100°</span><span>≥ 160°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Lie down, side view</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/pull-up-counter/" style="transition-delay:0.42s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">PULL-UP</span></div>
+  <h3>Pull-up counter</h3>
+  <div class="rule"><span>Elbow</span><span class="k">≤ 70°</span><span>≥ 150°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Face the camera, hands on the bar</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/bicep-curl-counter/" style="transition-delay:0.48s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">DB CURL</span></div>
+  <h3>Bicep curl counter</h3>
+  <div class="rule"><span>Elbow</span><span class="k">≤ 50°</span><span>≥ 150°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Face the camera</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/lateral-raise-counter/" style="transition-delay:0.54s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">LATERAL RAISE</span></div>
+  <h3>Lateral raise counter</h3>
+  <div class="rule"><span>Shoulder</span><span class="k">≥ 80°</span><span>≤ 30°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Face the camera</span>
+  <span class="go">How it counts →</span>
+</a>
+<a class="ex" href="/exercises/shoulder-press-counter/" style="transition-delay:0.60s">
+  <div class="top"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20h16M4 20L16 6M10 20a6 6 0 0 0-2-4.5"/></svg></span><span class="code">SHOULDER PRESS</span></div>
+  <h3>Overhead press counter</h3>
+  <div class="rule"><span>Elbow</span><span class="k">≥ 160°</span><span>≤ 90°</span></div>
+  <span class="mono" style="font-size:12px;color:var(--text3)">Face the camera, dumbbells at shoulders</span>
+  <span class="go">How it counts →</span>
+</a>
+    </div>
+  </div>
+</section>
+<section class="priv sec" id="privacy" data-fx="priv">
+  <div class="wrap">
+    <p class="eyebrow rv">03 · Privacy</p>
+    <h2 class="rv d1" style="margin-top:14px">Video stays on your phone.<br>Records stay on this device.</h2>
+    <p class="lead rv d2" style="margin-top:18px">Pose detection runs on your phone with Google ML Kit. Each frame is turned into joint positions and thrown away. Nothing is recorded, nothing is uploaded.</p>
+    <div class="stage rv d3" aria-label="Diagram: camera frames are processed on the phone and stopped before they reach any server" role="img">
+      <div class="pkt"></div><div class="pkt"></div><div class="pkt"></div>
+      <div class="dev"><div class="ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C6FF3D" stroke-width="1.8" aria-hidden="true"><path d="M3 8h3l2-3h8l2 3h3v12H3zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>Your phone · on-device AI</div>
+      <div class="wall"></div>
+      <div class="cloud"><svg width="96" height="64" viewBox="0 0 24 16" fill="none" stroke="#8A9AA6" stroke-width="1.2" aria-hidden="true"><path d="M6 15h12a4 4 0 0 0 .5-8A6 6 0 0 0 7 6a4.5 4.5 0 0 0-1 9z"/><path d="M9 7l6 6M15 7l-6 6" stroke="#FF6B7F"/></svg>Any server</div>
+    </div>
+    <div class="keep"><div class="rv d1"><b>Never recorded</b><span>Frames are analysed live and discarded. There is no video file.</span></div><div class="rv d2"><b>Stored on this phone</b><span>Workouts live in the app's private storage. Uninstalling deletes them.</span></div><div class="rv d3"><b>Anonymous stats only</b><span>Usage stats and crash reports carry no video, and you can turn them off in Settings.</span></div></div>
+    <p class="rv d4" style="margin-top:22px"><a href="/guides/on-device-pose-detection/">How on-device pose detection works →</a></p>
+  </div>
+</section>
+<section class="track sec" id="track" data-fx="cal">
+  <div class="wrap">
+    <div class="cal rv" aria-label="Example check-in calendar for October" role="img">
+      <div class="hd"><span style="font-weight:700">Check-ins</span><b>2026.10</b></div>
+      <div class="days" id="calDays"></div>
+      <div class="ft">
+        <div><span>Streak</span><b style="color:var(--orange)" id="calStreak">0</b></div>
+        <div><span>This month</span><b style="color:var(--lime)" id="calMonth">0</b></div>
+        <div><span>Total reps</span><b style="color:var(--cyan)" id="calTotal">0</b></div>
+      </div>
+      <div class="badge" id="calBadge">
+        <svg width="44" height="48" viewBox="0 0 56 62" fill="rgba(198,255,61,.12)" stroke="#C6FF3D" stroke-width="3" aria-hidden="true"><polygon points="28,2 54,17 54,45 28,60 2,45 2,17"/><path d="M18 31l7 7 13-14" fill="none"/></svg>
+        <div><b>Badge unlocked</b><span style="display:block;color:var(--text2);font-size:14px">2,000 squats</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow rv">04 · Progress</p>
+      <h2 class="rv d1" style="margin-top:14px">Check-ins, badges, hero cards.</h2>
+      <p class="lead rv d2" style="margin-top:18px">Hit your daily goal on any exercise and the day is checked in. Keep the streak going, unlock milestones, and share a hero card after every workout.</p>
+      <div class="feat"><div class="rv d2"><i style="background:rgba(198,255,61,.12);color:var(--lime)">▦</i><div><b>Calendar heatmap</b><span>See every day you trained at a glance.</span></div></div><div class="rv d3"><i style="background:rgba(255,138,61,.14);color:var(--orange)">◆</i><div><b>Streaks &amp; badges</b><span>Milestones for each exercise and your longest streak.</span></div></div><div class="rv d4"><i style="background:rgba(46,230,255,.12);color:var(--cyan)">▣</i><div><b>Hero card</b><span>Three styles, exported at 1080 × 1920. Save it or share it.</span></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="guest sec" id="guest" data-fx="guest">
+  <div class="wrap">
+    <p class="eyebrow rv">05 · No sign-in needed</p>
+    <h2 class="rv d1" style="margin-top:14px">Start counting in seconds.</h2>
+    <p class="lead rv d2" style="margin-top:18px">Guest mode does everything except save. Sign in with Google when you want your history kept on this phone.</p>
+    <div class="box rv d3">
+      <div class="mode" id="mGuest"><h3>Guest</h3><ul><li>Tracking &amp; counting, all 11 exercises</li><li>Hero card for this session</li><li class="x">Cleared when you close the app</li><li class="x">No streaks or badges</li></ul></div>
+      <div class="sw"><button type="button" role="switch" aria-checked="false" aria-label="Signed in" id="modeSw"><i></i></button><span id="swLabel">GUEST</span></div>
+      <div class="mode" id="mIn"><h3>Signed in</h3><ul><li>Everything in guest mode</li><li>Workouts saved on this phone</li><li>Calendar check-ins &amp; badges</li><li>Daily reminder</li></ul></div>
+    </div>
+  </div>
+</section>
+<section class="setup sec" id="setup" data-fx="setup">
+  <div class="wrap">
+    <p class="eyebrow rv">06 · Phone setup</p>
+    <h2 class="rv d1" style="margin-top:14px">Where to put your phone.</h2>
+    <p class="lead rv d2" style="margin-top:18px">Most miscounts come from the camera not seeing your whole body. Good light, full body in frame.</p>
+    <div class="cards">
+      <div class="card rv d2">
+        <h3>Squat · face the camera <span>SQUAT</span></h3>
+        <svg viewBox="0 0 320 150" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Phone upright about 2 to 3 metres in front of you" role="img">
+          <path class="draw" d="M10 136H310" stroke="#2A3542" stroke-width="2"/>
+          <g stroke="#C6FF3D" stroke-width="3"><rect class="draw" x="34" y="70" width="22" height="40" rx="4"/><path class="draw" d="M45 110V134M36 134H54"/></g>
+          <path class="draw" d="M56 76L218 22M56 104L218 134" stroke="#2EE6FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <g stroke="#E8F0F2" stroke-width="3"><circle class="draw" cx="240" cy="30" r="8"/><path class="draw" d="M240 38V80M226 50H254M240 80L228 106L232 134M240 80L252 106L248 134"/></g>
+          <text x="146" y="128" text-anchor="middle" fill="#C9D4DB" font-family="Inter" font-size="12">2–3 m</text>
+        </svg>
+        <p>Phone upright at waist height, 2–3 m away. Head to toe in frame.</p>
+      </div>
+      <div class="card rv d3">
+        <h3>Push-up · side view, low <span style="background:var(--lime)">PUSH-UP</span></h3>
+        <svg viewBox="0 0 320 150" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-label="Phone on the floor about 1.5 metres to your side" role="img">
+          <path class="draw" d="M10 130H310" stroke="#2A3542" stroke-width="2"/>
+          <g stroke="#E8F0F2" stroke-width="3"><circle class="draw" cx="150" cy="80" r="7"/><path class="draw" d="M158 84L258 104L292 120M162 86L166 106L160 128"/></g>
+          <g stroke="#C6FF3D" stroke-width="3"><rect class="draw" x="30" y="98" width="18" height="30" rx="3"/></g>
+          <path class="draw" d="M48 102L140 66M48 126L296 126" stroke="#2EE6FF" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text x="98" y="118" text-anchor="middle" fill="#C9D4DB" font-family="Inter" font-size="12">~1.5 m</text>
+        </svg>
+        <p>Phone on the floor beside you, side-on, so it sees you from head to feet.</p>
+      </div>
+    </div>
+    <p class="rv d4" style="margin-top:22px"><a href="/guides/phone-placement/">Phone setup for every exercise →</a></p>
+  </div>
+</section>
+<section class="shots sec" id="screens" data-fx="shots">
+  <div class="wrap">
+    <p class="eyebrow rv">07 · Inside the app</p>
+    <h2 class="rv d1" style="margin-top:14px">A cyber-clean workout HUD.</h2>
+    <div class="reel" tabindex="0" aria-label="App screenshots, scroll horizontally"><figure style="--r:-3deg;transition-delay:0.05s"><img src="/assets/shot-1.jpg" width="540" height="960" loading="lazy" alt="KINETIC home screen showing today&#x27;s reps, a 12-day streak and the Start Scan button"><figcaption>Today at a glance</figcaption></figure><figure style="--r:2deg;transition-delay:0.15s"><img src="/assets/shot-2.jpg" width="540" height="960" loading="lazy" alt="KINETIC counting squats with a green skeleton overlay and a rep counter"><figcaption>Live rep counting</figcaption></figure><figure style="--r:-2deg;transition-delay:0.25s"><img src="/assets/shot-3.jpg" width="540" height="960" loading="lazy" alt="KINETIC check-in calendar heatmap for October"><figcaption>Check-in calendar</figcaption></figure><figure style="--r:3deg;transition-delay:0.35s"><img src="/assets/shot-4.jpg" width="540" height="960" loading="lazy" alt="KINETIC hero card in neon, holo and mono styles"><figcaption>Shareable hero card</figcaption></figure></div>
+  </div>
+</section>
+<section class="sec" id="faq" data-fx="faq">
+  <div class="wrap">
+    <p class="eyebrow rv">08 · FAQ</p>
+    <h2 class="rv d1" style="margin-top:14px">Questions, answered.</h2>
+    <div class="faq-list rv d2">
+<details open><summary>How does KINETIC count reps?</summary><div class="ans">KINETIC tracks your joints with the phone camera and measures joint angles. A squat counts when your knee angle drops to 110° or less and comes back above 160°. Pose detection runs on the phone.</div></details>
+<details><summary>Is my video uploaded?</summary><div class="ans">No. Video is processed on your phone and never recorded or uploaded. Workout records are stored only on this device.</div></details>
+<details><summary>The count seems off. What can I do?</summary><div class="ans">Keep your whole body in frame with good lighting. Face the camera for squats; for push-ups, put the phone on the floor beside you so it sees you from the side. You can also adjust the angle thresholds in the app. See <a href="/guides/phone-placement/">phone setup for every exercise</a>.</div></details>
+<details><summary>Do I need to sign in?</summary><div class="ans">No. Guest mode counts reps for every exercise but doesn't save workouts. Sign in with Google to save workouts on this phone, track check-ins and earn badges.</div></details>
+<details><summary>Will my workouts move to a new phone?</summary><div class="ans">Workouts are stored only on your phone, with no cloud backup. You can export them from Settings › Data &amp; storage and keep the file yourself.</div></details>
+    </div>
+    <p class="rv d3" style="margin-top:22px"><a href="/faq/">All questions →</a></p>
+  </div>
+</section>
+<section class="cta-sec sec" id="get" data-fx="cta">
+  <span class="ring" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span><span class="ring" aria-hidden="true"></span>
+  <div class="wrap" style="position:relative">
+    <p class="eyebrow rv">Free on Android</p>
+    <h2 class="rv d1" style="margin-top:14px">Just move.<br><span style="color:var(--lime)">AI counts for you.</span></h2>
+    <p class="lead rv d2">11 exercises. On-device pose detection. Video never uploaded.</p>
+    <div class="cta rv d3"><span class="soon"><i></i>Coming soon to Google Play</span></div>
+    <p class="contact rv d4">Questions, problems or ideas? Email <a href="mailto:leishaolen@gmail.com">leishaolen@gmail.com</a> and we'll reply within 7 business days.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>© 2026 KINETIC · operated by shaolei wang</span>
+    <nav aria-label="Footer"><a href="/exercises/">Exercises</a><a href="/guides/">Guides</a><a href="/faq/">FAQ</a><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of use</a><a href="/delete-account.html">Delete account and data</a></nav>
+  </div>
+</footer>
+<script src="/assets/site.js"></script>
+<script>window.KI18N={"knee": "KNEE", "deep": "Deep enough ✓", "good": "Good rep · +1", "lower": "Go lower…", "guest": "GUEST", "signedIn": "SIGNED IN", "locale": "en-US"};</script>
+<script src="/assets/home.js"></script>
 </body>
 </html>

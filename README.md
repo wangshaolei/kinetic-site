@@ -1,22 +1,58 @@
 # KINETIC 主站
 
-KINETIC（AI 运动计数 App）的公开网页，部署在 GitHub Pages：
+KINETIC（AI 运动计数 App）的公开网站 https://kinetic.lencoder.com/ ，部署在 GitHub Pages（main 分支根目录，推送即发布）。
 
-| 页面 | 用途 |
-|---|---|
-| `index.html` | 首页，兼做技术支持页（App Store「技术支持网址」） |
-| `privacy.html` | 隐私政策（Google Play、App Store、Google 登录品牌信息） |
-| `terms.html` | 用户协议 |
-| `delete-account.html` | 删除账号与数据（Google Play 账号删除政策要求的网页） |
+## 页面
 
-每页都有英文、简体、繁体三种语言，按浏览器语言自动选择，也可以用 `?lang=en|zh|hant` 指定。
+英文在根目录，简体中文在 `/zh/`，繁体中文在 `/zh-hant/`，三种语言的页面一一对应（hreflang 互相标注）。
+
+| 页面 | 网址（英文） | 说明 |
+|---|---|---|
+| 首页 | `/` | 设计稿见 rep-counter 仓库 `docs/site-redesign/index.html`；兼做技术支持页 |
+| 动作 | `/exercises/`、`/exercises/<动作>-counter/` | 11 个动作的判定角度、手机摆放、常见问题 |
+| 指南 | `/guides/`、`/guides/<slug>/` | 手机摆放、本机识别原理、俯卧撑和深蹲挑战 |
+| 常见问题 | `/faq/` | |
+| 隐私政策 | `/privacy.html` | Google Play、Google 登录品牌信息引用，**不能改名** |
+| 用户协议 | `/terms.html` | |
+| 删除账号与数据 | `/delete-account.html` | Google Play 账号删除政策要求，**不能改名** |
+| 其他 | `404.html`、`robots.txt`、`sitemap.xml`、`llms.txt` | 都由脚本生成 |
+
+旧网址的 `?lang=zh` / `?lang=hant` 会自动跳到对应的中文网址。
 
 ## 更新
 
-隐私政策和用户协议的正文取自 App 的多语言文件，App 里改了文案后重新生成：
+除 `assets/` 里的图片和 `CNAME`、`googlef04c3ff81c2cd3a7.html`（Search Console 验证文件，别删）外，所有页面都由脚本生成，不要手改 HTML：
 
 ```bash
 python3 tools/build.py ../rep-counter/app/lib/l10n
 ```
 
-运营方、联系邮箱、生效日期在 `tools/build.py` 顶部，要和 App 里的 `AppLegal` 保持一致。
+| 要改什么 | 改哪里 |
+|---|---|
+| 隐私政策、用户协议正文 | App 的 `app/lib/l10n/app_*.arb`，改完重新生成 |
+| 首页、动作页、常见问题文案 | `tools/content.py` |
+| 指南正文 | `tools/guides.py` |
+| 删除账号页文案 | `tools/legal_text.py` |
+| 运营方、邮箱、生效日期 | `tools/build.py` 顶部，要和 App 的 `AppLegal` 一致 |
+| 「最后更新」日期、sitemap 日期 | `tools/build.py` 的 `UPDATED` |
+| 上架后换成下载按钮 | `tools/build.py` 的 `PLAY_LIVE = True` |
+| 样式 / 首页动效 | `assets/site.css` / `assets/home.js` |
+
+App 里改了动作的默认角度（`app/lib/domain/models/exercise.dart`），`tools/content.py` 的 `EXERCISES` 要同步改。
+
+## 图片
+
+| 文件 | 用途 | 来源 |
+|---|---|---|
+| `assets/shot-1~4.jpg` | 英文首页截图、结构化数据 | rep-counter `docs/store/listing/screenshots/en-US/`，缩到 540×960 |
+| `assets/zh/shot-1~4.jpg`、`assets/zh-hant/shot-1~4.jpg` | 中文首页截图 | 同上 `zh-CN/`、`zh-TW/` |
+| `assets/og-1200x630.png`、`assets/zh/og-1200x630.png` | 分享卡片图（繁中没有单独的图时用简中的） | 英文是设计稿，简中由商店置顶大图加边得到 |
+| `assets/badges/google-play-{en,zh,hant}.png` | 上架后的官方下载徽章（可选，没有时显示文字按钮） | https://play.google.com/intl/en_us/badges/ |
+
+## 本地预览
+
+```bash
+python3 -m http.server 8765
+```
+
+打开 http://localhost:8765/ 。

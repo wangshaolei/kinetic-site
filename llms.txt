@@ -1,0 +1,38 @@
+# KINETIC: AI Rep Counter
+
+> KINETIC: AI Rep Counter is a free Android app that uses your phone camera to count reps for 11 exercises. Pose detection runs on-device; video is never uploaded.
+
+Key facts:
+- Platform: Android (https://play.google.com/store/apps/details?id=com.lencoder.sport.ai). No iOS version yet.
+- Price: free, no ads.
+- Counts 11 exercises from joint angles measured with the phone camera (Google ML Kit pose detection, on-device).
+- Video is never recorded or uploaded. Workout records are stored only on the phone, per Google account; guest mode saves nothing.
+- Works offline. Languages: English, Simplified Chinese, Traditional Chinese.
+- Developer: shaolei wang (leishaolen@gmail.com).
+
+## Exercises
+- [Push-up counter](https://kinetic.lencoder.com/exercises/push-up-counter/): elbow angle, 90° or less counts
+- [Squat counter](https://kinetic.lencoder.com/exercises/squat-counter/): knee angle, 110° or less, then back to 160°
+- [Lunge counter](https://kinetic.lencoder.com/exercises/lunge-counter/): knee angle, 100° or less, then back to 160°
+- [Sit-up counter](https://kinetic.lencoder.com/exercises/sit-up-counter/): hip angle, 70° or less, then back to 120°
+- [Jumping jack counter](https://kinetic.lencoder.com/exercises/jumping-jack-counter/): shoulder angle, 150° or more, then back to 40°
+- [Glute bridge counter](https://kinetic.lencoder.com/exercises/glute-bridge-counter/): hip angle, 165° or more, then back to 140°
+- [Leg raise counter](https://kinetic.lencoder.com/exercises/leg-raise-counter/): hip angle, 100° or less, then back to 160°
+- [Pull-up counter](https://kinetic.lencoder.com/exercises/pull-up-counter/): elbow angle, 70° or less, then back to 150°
+- [Bicep curl counter](https://kinetic.lencoder.com/exercises/bicep-curl-counter/): elbow angle, 50° or less, then back to 150°
+- [Lateral raise counter](https://kinetic.lencoder.com/exercises/lateral-raise-counter/): shoulder angle, 80° or more, then back to 30°
+- [Overhead press counter](https://kinetic.lencoder.com/exercises/shoulder-press-counter/): elbow angle, 160° or more, then back to 90°
+
+## Guides
+- [Where to put your phone](https://kinetic.lencoder.com/guides/phone-placement/): Phone setup for all 11 exercises, plus lighting tips.
+- [How on-device pose detection works](https://kinetic.lencoder.com/guides/on-device-pose-detection/): What happens to each camera frame, and what (little) leaves your phone.
+- [100 push-ups a day](https://kinetic.lencoder.com/guides/100-push-ups-a-day/): Split it into sets, build up week by week, track it automatically.
+- [30-day squat challenge](https://kinetic.lencoder.com/guides/30-day-squat-challenge/): A day-by-day plan from 20 to 130 squats, with a rest day every fourth day.
+- [FAQ](https://kinetic.lencoder.com/faq/)
+
+## Policies
+- [Privacy policy](https://kinetic.lencoder.com/privacy.html)
+- [Terms of use](https://kinetic.lencoder.com/terms.html)
+- [Delete account and data](https://kinetic.lencoder.com/delete-account.html)
+
+Chinese versions: https://kinetic.lencoder.com/zh/ (Simplified), https://kinetic.lencoder.com/zh-hant/ (Traditional).
