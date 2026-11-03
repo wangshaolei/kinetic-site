@@ -296,6 +296,11 @@ footer a:hover{color:var(--lime)}
 .tbl th{color:var(--text3);font-weight:600;font-size:13px}
 .tbl td{color:var(--text2)}
 .tbl-wrap{overflow-x:auto}
+/* 对比页：7 列，宽屏时超出正文宽度，手机上横向滚动，第一列固定方便对照 */
+.tbl-wrap.wide{width:min(1180px,calc(100vw - 32px));position:relative;left:50%;transform:translateX(-50%)}
+.tbl.cmp{min-width:980px;font-size:14px}
+.tbl.cmp td small{color:var(--text3);font-size:12px}
+.tbl.cmp tr>:first-child{position:sticky;left:0;background:var(--bg);min-width:150px}
 .cta-box{clear:both;margin:50px 0 10px;padding:26px;border:1px solid var(--line2);border-radius:22px;background:var(--surface);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
 .cta-box p{margin:0;color:var(--text);font-weight:600}
 .related{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:14px}

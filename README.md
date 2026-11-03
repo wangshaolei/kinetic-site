@@ -10,7 +10,7 @@ KINETIC（AI 运动计数 App）的公开网站 https://kinetic.lencoder.com/ �
 |---|---|---|
 | 首页 | `/` | 设计稿见 rep-counter 仓库 `docs/site-redesign/index.html`；兼做技术支持页 |
 | 动作 | `/exercises/`、`/exercises/<动作>-counter/` | 11 个动作的判定角度、手机摆放、常见问题 |
-| 指南 | `/guides/`、`/guides/<slug>/` | 手机摆放、本机识别原理、俯卧撑和深蹲挑战 |
+| 指南 | `/guides/`、`/guides/<slug>/` | 手机摆放、本机识别原理、俯卧撑和深蹲挑战、同类 App 对比 |
 | 常见问题 | `/faq/` | |
 | 隐私政策 | `/privacy.html` | Google Play、Google 登录品牌信息引用，**不能改名** |
 | 用户协议 | `/terms.html` | |
@@ -32,6 +32,7 @@ python3 tools/build.py ../rep-counter/app/lib/l10n
 | 隐私政策、用户协议正文 | App 的 `app/lib/l10n/app_*.arb`，改完重新生成 |
 | 首页、动作页、常见问题文案 | `tools/content.py` |
 | 指南正文 | `tools/guides.py` |
+| 对比页的表格（同类 App 的商店信息、查阅日期） | `tools/compare.py`，只写对方商店页上写明的事实 |
 | 删除账号页文案 | `tools/legal_text.py` |
 | 运营方、邮箱、生效日期 | `tools/build.py` 顶部，要和 App 的 `AppLegal` 一致 |
 | 「最后更新」日期、sitemap 日期 | `tools/build.py` 的 `UPDATED` |

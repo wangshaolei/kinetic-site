@@ -1,7 +1,8 @@
 """指南页正文（三种语言）。
 
 body 里的占位符由 build.py 填：{p} 是当前语言的网址前缀（英文为空、简中 /zh、繁中 /zh-hant），
-{table}、{postures} 只在手机摆放指南里用，按 content.EXERCISES 自动生成。
+{table}、{postures} 只在手机摆放指南里用，按 content.EXERCISES 自动生成；
+{plan} 是 30 天深蹲表；{compare}、{checked}、{e} 用在对比页（数据在 compare.py）。
 """
 
 GUIDES = [
@@ -334,6 +335,119 @@ GUIDES = [
 </ul>
 <h2>用 KINETIC 記錄</h2>
 <p>把深蹲的每日目標設成當天的數字，手機直立在你前方 2–3 公尺，開始蹲。每次計數都會累計到今日總數，完成目標後日曆自動打卡。</p>
+""",
+        },
+    },
+    {
+        "slug": "rep-counter-apps-compared",
+        "title": {
+            "en": "Rep Counter Apps Compared (2026): KINETIC, GoodGYM, MyRepsCount and More",
+            "zh": "AI 运动计数 App 对比（2026）：KINETIC、GoodGYM、MyRepsCount 等 6 款",
+            "hant": "AI 運動計數 App 比較（2026）：KINETIC、GoodGYM、MyRepsCount 等 6 款",
+        },
+        "h1": {"en": "Rep counter apps compared", "zh": "运动计数 App 对比", "hant": "運動計數 App 比較"},
+        "card": {
+            "en": "Six camera rep counters side by side: platform, price, exercises and privacy.",
+            "zh": "6 款摄像头计数 App 的平台、价格、动作数和隐私对比。",
+            "hant": "6 款相機計數 App 的平台、價格、動作數和隱私比較。",
+        },
+        "desc": {
+            "en": "Six apps that count reps with your phone camera, compared from their store pages: platform, price, ads, number of exercises, how camera video is handled and what data they declare.",
+            "zh": "6 款用手机摄像头自动计数的 App，按商店页信息对比：平台、价格、广告、能数的动作、画面怎么处理、声明收集哪些数据。",
+            "hant": "6 款用手機相機自動計數的 App，依商店頁資訊比較：平台、價格、廣告、能數的動作、畫面怎麼處理、聲明收集哪些資料。",
+        },
+        "answer": {
+            "en": "On iPhone, GoodGYM is the closest match. On Android, MyRepsCount counts the most exercises (60+) but has ads; KINETIC counts 11 exercises with no ads, no in-app purchases and no account required, and lets you adjust the angle each rep must reach.",
+            "zh": "用 iPhone 选 GoodGYM。用 Android：要动作最多选 MyRepsCount（60 种以上，有广告）；KINETIC 能数 11 种动作，没有广告、没有应用内购买、不登录也能用，而且每个动作的判定角度可以自己调。",
+            "hant": "用 iPhone 選 GoodGYM。用 Android：要動作最多選 MyRepsCount（60 種以上，有廣告）；KINETIC 能數 11 種動作，沒有廣告、沒有應用程式內購買、不登入也能用，而且每個動作的判定角度可以自己調。",
+        },
+        "body": {
+            "en": """
+<h2>At a glance</h2>
+<p>Everything below comes from each app's US store page, checked on {checked}. Scroll the table sideways on a phone.</p>
+{compare}
+<h2>Which one fits you</h2>
+<ul>
+<li><b>You use an iPhone:</b> GoodGYM. KINETIC doesn't have an iOS version yet.</li>
+<li><b>You want the most exercises, programs or gym logging:</b> MyRepsCount.</li>
+<li><b>You want form and tempo feedback for curls and presses:</b> REP AI.</li>
+<li><b>You want daily push-up, squat and crunch challenges:</b> Repletic.</li>
+<li><b>You want an app with no ads, no purchases and no sign-up, and you want to set how deep each rep must go:</b> KINETIC.</li>
+</ul>
+<h2>Where KINETIC falls short</h2>
+<ul>
+<li>Android only for now.</li>
+<li>11 exercises and no custom exercises. MyRepsCount and GoodGYM count more.</li>
+<li>It checks range of motion (the joint angle), not form errors or tempo.</li>
+<li>No training programs, games or smartwatch support.</li>
+</ul>
+<h2>How this comparison was made</h2>
+<ul>
+<li>Only facts written on each store page are used. Where a page doesn't say something, the table says "Not stated".</li>
+<li>Privacy entries are what each developer declares in Google Play's Data safety section or Apple's privacy label. Stores don't verify them.</li>
+<li>We didn't test how accurately the other apps count, so there's no accuracy column.</li>
+<li>Prices and features change. Check the store page before you install. If something here is wrong, email <a href="mailto:{e}">{e}</a> and we'll fix it.</li>
+</ul>
+<h2>Whichever app you pick</h2>
+<p>Every camera rep counter needs the same setup: your whole body in frame, good light and a steady phone. See <a href="{p}/guides/phone-placement/">where to put your phone</a>, and <a href="{p}/guides/on-device-pose-detection/">how on-device pose detection works</a>.</p>
+""",
+            "zh": """
+<h2>一览表</h2>
+<p>下表信息全部来自各 App 的美国区商店页，查阅日期 {checked}。手机上可以左右滑动表格。</p>
+{compare}
+<h2>怎么选</h2>
+<ul>
+<li><b>用 iPhone：</b>GoodGYM。KINETIC 暂时没有 iOS 版。</li>
+<li><b>想要动作最多、有训练计划、能记健身房训练：</b>MyRepsCount。</li>
+<li><b>练弯举、推举，想要动作错误和速度提示：</b>REP AI。</li>
+<li><b>只练俯卧撑、深蹲、卷腹，想要每日挑战：</b>Repletic。</li>
+<li><b>不想看广告、不想付费、不想注册，还想自己定每个动作做到多深才算：</b>KINETIC。</li>
+</ul>
+<h2>KINETIC 做不到的</h2>
+<ul>
+<li>目前只有 Android 版。</li>
+<li>11 种动作，不能自定义动作。MyRepsCount 和 GoodGYM 能数的更多。</li>
+<li>只判断动作幅度（关节角度）够不够，不提示动作错误，也不统计速度。</li>
+<li>没有训练计划、游戏，不支持手表。</li>
+</ul>
+<h2>这份对比怎么做的</h2>
+<ul>
+<li>只用各 App 商店页上写明的信息。商店页没写的，表里写「未注明」。</li>
+<li>隐私一栏是开发者在 Google Play「数据安全」或 App Store「App 隐私」里自己填的，商店不做核实。</li>
+<li>我们没有实测其他 App 数得准不准，所以没有准确度一栏。</li>
+<li>价格和功能会变，安装前以商店页为准。发现写错了，请发邮件到 <a href="mailto:{e}">{e}</a>，我们核实后修改。</li>
+</ul>
+<h2>不管用哪款</h2>
+<p>摄像头计数 App 都要全身入镜、光线充足、手机放稳。具体见<a href="{p}/guides/phone-placement/">手机怎么摆</a>和<a href="{p}/guides/on-device-pose-detection/">本机姿态识别的原理</a>。</p>
+""",
+            "hant": """
+<h2>一覽表</h2>
+<p>下表資訊全部來自各 App 的美國區商店頁，查閱日期 {checked}。手機上可以左右滑動表格。</p>
+{compare}
+<h2>怎麼選</h2>
+<ul>
+<li><b>用 iPhone：</b>GoodGYM。KINETIC 暫時沒有 iOS 版。</li>
+<li><b>想要動作最多、有訓練計畫、能記健身房訓練：</b>MyRepsCount。</li>
+<li><b>練彎舉、推舉，想要動作錯誤和速度提示：</b>REP AI。</li>
+<li><b>只練伏地挺身、深蹲、捲腹，想要每日挑戰：</b>Repletic。</li>
+<li><b>不想看廣告、不想付費、不想註冊，還想自己定每個動作做到多深才算：</b>KINETIC。</li>
+</ul>
+<h2>KINETIC 做不到的</h2>
+<ul>
+<li>目前只有 Android 版。</li>
+<li>11 種動作，不能自訂動作。MyRepsCount 和 GoodGYM 能數的更多。</li>
+<li>只判斷動作幅度（關節角度）夠不夠，不提示動作錯誤，也不統計速度。</li>
+<li>沒有訓練計畫、遊戲，不支援手錶。</li>
+</ul>
+<h2>這份比較怎麼做的</h2>
+<ul>
+<li>只用各 App 商店頁上寫明的資訊。商店頁沒寫的，表裡寫「未註明」。</li>
+<li>隱私一欄是開發者在 Google Play「資料安全性」或 App Store「App 隱私權」裡自己填的，商店不做核實。</li>
+<li>我們沒有實測其他 App 數得準不準，所以沒有準確度一欄。</li>
+<li>價格和功能會變，安裝前以商店頁為準。發現寫錯了，請寄信到 <a href="mailto:{e}">{e}</a>，我們核實後修改。</li>
+</ul>
+<h2>不管用哪款</h2>
+<p>相機計數 App 都要全身入鏡、光線充足、手機放穩。詳見<a href="{p}/guides/phone-placement/">手機怎麼擺</a>和<a href="{p}/guides/on-device-pose-detection/">本機姿勢辨識的原理</a>。</p>
 """,
         },
     },

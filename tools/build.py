@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from content import (  # noqa: E402
     APP_NAME, DESC, ENTITY, EXERCISES, EXP, FAQ, FAQP, HOME, JOINT, JOINT_DEF, POSTURE, SIDES, UI,
 )
+from compare import APPS, CHECKED, TH  # noqa: E402
 from guides import GUIDE_UI, GUIDES  # noqa: E402
 from legal_text import LEGAL  # noqa: E402
 
@@ -715,6 +716,19 @@ def squat_plan(lang: str) -> str:
     return f'<div class="tbl-wrap"><table class="tbl" style="text-align:center">{rows}</table></div>'
 
 
+def compare_table(lang: str) -> str:
+    cols = ("platform", "price", "exercises", "video", "data", "extras")
+    head = "".join(f"<th>{TH[c][lang]}</th>" for c in ("app",) + cols)
+    rows = []
+    for a in APPS:
+        # 对方的商店页加 nofollow：只是引用出处，不给对方传递权重
+        link = (f'<a href="{href(lang, "")}">{esc(a["name"])}</a>' if a["url"] is None
+                else f'<a href="{esc(a["url"])}" rel="nofollow noopener">{esc(a["name"])}</a>')
+        cells = "".join(f"<td>{a[c][lang]}</td>" for c in cols)
+        rows.append(f'<tr><td><b>{link}</b><br><small>{esc(a["dev"])}</small></td>{cells}</tr>')
+    return f'<div class="tbl-wrap wide"><table class="tbl cmp"><tr>{head}</tr>{"".join(rows)}</table></div>'
+
+
 def guide_page(g: dict, lang: str) -> None:
     key = f"guides/{g['slug']}/"
     title, desc = g["title"][lang], g["desc"][lang]
@@ -724,6 +738,8 @@ def guide_page(g: dict, lang: str) -> None:
         content = fill(content, table=placement_table(lang), postures=posture_sections(lang))
     if "{plan}" in content:
         content = fill(content, plan=squat_plan(lang))
+    if "{compare}" in content:
+        content = fill(content, compare=compare_table(lang), checked=CHECKED, e=EMAIL)
     related = "".join(
         f'<a href="{href(lang, "guides/" + o["slug"] + "/")}">{o["h1"][lang]}<span>{o["card"][lang]}</span></a>'
         for o in GUIDES if o is not g
