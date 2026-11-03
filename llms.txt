@@ -28,6 +28,7 @@ Key facts:
 - [How on-device pose detection works](https://kinetic.lencoder.com/guides/on-device-pose-detection/): What happens to each camera frame, and what (little) leaves your phone.
 - [100 push-ups a day](https://kinetic.lencoder.com/guides/100-push-ups-a-day/): Split it into sets, build up week by week, track it automatically.
 - [30-day squat challenge](https://kinetic.lencoder.com/guides/30-day-squat-challenge/): A day-by-day plan from 20 to 130 squats, with a rest day every fourth day.
+- [Beginner bodyweight plan](https://kinetic.lencoder.com/guides/beginner-bodyweight-plan/): 4 weeks, 3 short sessions a week, five exercises, no equipment.
 - [Rep counter apps compared](https://kinetic.lencoder.com/guides/rep-counter-apps-compared/): Six camera rep counters side by side: platform, price, exercises and privacy.
 - [FAQ](https://kinetic.lencoder.com/faq/)
 

@@ -23,7 +23,7 @@ from content import (  # noqa: E402
     APP_NAME, DESC, ENTITY, EXERCISES, EXP, FAQ, FAQP, HOME, JOINT, JOINT_DEF, POSTURE, SIDES, UI,
 )
 from compare import APPS, CHECKED, TH  # noqa: E402
-from guides import GUIDE_UI, GUIDES  # noqa: E402
+from guides import BEGINNER_PLAN, GUIDE_UI, GUIDES  # noqa: E402
 from legal_text import LEGAL  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -716,6 +716,25 @@ def squat_plan(lang: str) -> str:
     return f'<div class="tbl-wrap"><table class="tbl" style="text-align:center">{rows}</table></div>'
 
 
+def beginner_plan(lang: str) -> str:
+    by_id = {e["id"]: e for e in EXERCISES}
+    weeks = len(BEGINNER_PLAN[0][1])
+    head = (f'<th>{GUIDE_UI["th_ex"][lang]}</th><th>{GUIDE_UI["th_phone"][lang]}</th>'
+            + "".join(f'<th>{tr(GUIDE_UI["week"], lang, n=i + 1)}</th>' for i in range(weeks)))
+    rows = []
+    for ex_id, plan in BEGINNER_PLAN:
+        e = by_id[ex_id]
+        name = f'<a href="{href(lang, "exercises/" + e["slug"] + "/")}">{e["name"][lang]}</a>'
+        if ex_id == "lunge":
+            name += f'<br><small>{GUIDE_UI["lunge_note"][lang]}</small>'
+        cells = "".join(
+            "<td>—</td>" if w is None else f"<td>{w[0]} × {w[1]}<br><small>= {w[0] * w[1]}</small></td>"
+            for w in plan
+        )
+        rows.append(f'<tr><td>{name}</td><td>{POSTURE[e["posture"]]["short"][lang]}</td>{cells}</tr>')
+    return f'<div class="tbl-wrap"><table class="tbl plan"><tr>{head}</tr>{"".join(rows)}</table></div>'
+
+
 def compare_table(lang: str) -> str:
     cols = ("platform", "price", "exercises", "video", "data", "extras")
     head = "".join(f"<th>{TH[c][lang]}</th>" for c in ("app",) + cols)
@@ -738,6 +757,8 @@ def guide_page(g: dict, lang: str) -> None:
         content = fill(content, table=placement_table(lang), postures=posture_sections(lang))
     if "{plan}" in content:
         content = fill(content, plan=squat_plan(lang))
+    if "{beginner}" in content:
+        content = fill(content, beginner=beginner_plan(lang))
     if "{compare}" in content:
         content = fill(content, compare=compare_table(lang), checked=CHECKED, e=EMAIL)
     related = "".join(

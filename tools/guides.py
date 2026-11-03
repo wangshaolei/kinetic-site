@@ -2,7 +2,7 @@
 
 body 里的占位符由 build.py 填：{p} 是当前语言的网址前缀（英文为空、简中 /zh、繁中 /zh-hant），
 {table}、{postures} 只在手机摆放指南里用，按 content.EXERCISES 自动生成；
-{plan} 是 30 天深蹲表；{compare}、{checked}、{e} 用在对比页（数据在 compare.py）。
+{plan} 是 30 天深蹲表，{beginner} 是新手计划表（数据在下面的 BEGINNER_PLAN）；{compare}、{checked}、{e} 用在对比页（数据在 compare.py）。
 """
 
 GUIDES = [
@@ -339,6 +339,113 @@ GUIDES = [
         },
     },
     {
+        "slug": "beginner-bodyweight-plan",
+        "title": {
+            "en": "Beginner Bodyweight Workout Plan – 4 Weeks, 3 Days a Week, No Equipment",
+            "zh": "新手自重训练计划：4 周、每周 3 练、不用器械",
+            "hant": "新手自體重訓練計畫：4 週、每週 3 練、不用器材",
+        },
+        "h1": {"en": "Beginner bodyweight plan", "zh": "新手自重训练计划", "hant": "新手自體重訓練計畫"},
+        "card": {
+            "en": "4 weeks, 3 short sessions a week, five exercises, no equipment.",
+            "zh": "4 周，每周 3 次、每次 20 分钟左右，5 个动作，不用器械。",
+            "hant": "4 週，每週 3 次、每次 20 分鐘左右，5 個動作，不用器材。",
+        },
+        "desc": {
+            "en": "A 4-week bodyweight plan for complete beginners: 3 sessions a week of squats, glute bridges, push-ups, jumping jacks and lunges, with sets and reps for every week and automatic counting with your phone camera.",
+            "zh": "给完全新手的 4 周自重训练计划：每周 3 次，深蹲、臀桥、俯卧撑、开合跳、弓步蹲，每周的组数和次数都列好了，用手机摄像头自动计数。",
+            "hant": "給完全新手的 4 週自體重訓練計畫：每週 3 次，深蹲、臀橋、伏地挺身、開合跳、弓箭步，每週的組數和次數都列好了，用手機相機自動計數。",
+        },
+        "answer": {
+            "en": "Train 3 days a week with a rest day in between, for example Monday, Wednesday and Friday. In week 1 do 2 sets each of 15 jumping jacks, 8 squats, 5 push-ups (on your knees is fine) and 10 glute bridges. Add a set or a few reps each week, and add lunges from week 3. Each session takes about 20 minutes.",
+            "zh": "每周练 3 天，中间隔一天休息，比如周一、周三、周五。第 1 周每个动作做 2 组：开合跳 15 个、深蹲 8 个、俯卧撑 5 个（跪姿也行）、臀桥 10 个。之后每周加一组或加几个，第 3 周加入弓步蹲。每次大约 20 分钟。",
+            "hant": "每週練 3 天，中間隔一天休息，例如週一、週三、週五。第 1 週每個動作做 2 組：開合跳 15 下、深蹲 8 下、伏地挺身 5 下（跪姿也可以）、臀橋 10 下。之後每週加一組或加幾下，第 3 週加入弓箭步。每次大約 20 分鐘。",
+        },
+        "body": {
+            "en": """
+<h2>The plan</h2>
+<p>Each cell is sets × reps. The number below it is the total for that session, which is what you set as the daily goal in KINETIC.</p>
+{beginner}
+<h2>One session, step by step</h2>
+<ol>
+<li><b>Warm up for 3 minutes:</b> march in place, roll your shoulders, swing your arms.</li>
+<li><b>Standing exercises first.</b> Stand the phone upright 2–3 m away, facing you, and do the jumping jacks and squats. For lunges, turn sideways to the phone.</li>
+<li><b>Then the floor exercises.</b> Move the phone to the floor beside you and do the push-ups and glute bridges.</li>
+<li><b>Rest 60–90 seconds between sets.</b> Take longer if you need to; the goal is good reps, not speed.</li>
+<li><b>Cool down:</b> walk around for a minute and stretch your legs, hips and chest.</li>
+</ol>
+<h2>If push-ups are too hard</h2>
+<p>Do them on your knees, keeping a straight line from shoulders to knees. KINETIC still counts a rep when your elbows bend to about 90°, as long as your body stays close to horizontal. Push-ups against a wall or a high bench won't be counted. <a href="{p}/exercises/push-up-counter/">How push-ups are counted</a>.</p>
+<h2>How to move on</h2>
+<ul>
+<li>Finished every set with good form? Go to the next week.</li>
+<li>Couldn't finish, or your form fell apart in the last reps? Repeat the week. Taking 6 weeks instead of 4 is fine.</li>
+<li>Mild muscle soreness for a day or two is normal in the first weeks. Sharp pain or joint pain is not: stop and rest.</li>
+<li>Missed a session? Just do the next one. Don't squeeze two into one day.</li>
+<li>If you have a health condition or an injury, or haven't exercised in a long time, check with a doctor first.</li>
+</ul>
+<h2>After week 4</h2>
+<p>Keep going with week 4 and add reps, or pick a challenge: the <a href="{p}/guides/30-day-squat-challenge/">30-day squat challenge</a> or <a href="{p}/guides/100-push-ups-a-day/">100 push-ups a day</a>.</p>
+<h2>Track it with KINETIC</h2>
+<p>At the start of each week, set the daily goal for each exercise to the total in the table (for week 1: 30 jumping jacks, 16 squats, 10 push-ups, 20 glute bridges). Every counted rep adds to today's total, and hitting a goal checks the day in on your calendar. See <a href="{p}/guides/phone-placement/">where to put your phone</a> for each exercise.</p>
+""",
+            "zh": """
+<h2>计划表</h2>
+<p>每格是「组数 × 每组次数」，下面的数字是这一次训练的总数，也就是在 KINETIC 里要设的每日目标。</p>
+{beginner}
+<h2>一次训练怎么做</h2>
+<ol>
+<li><b>热身 3 分钟：</b>原地踏步、绕肩、摆臂。</li>
+<li><b>先做站立的动作。</b>手机竖立在前方 2–3 米，正对你，做开合跳和深蹲。弓步蹲时侧对手机。</li>
+<li><b>再做地面的动作。</b>把手机放到身体侧面的地上，做俯卧撑和臀桥。</li>
+<li><b>组间休息 60–90 秒。</b>需要就多歇一会儿，要的是动作标准，不是快。</li>
+<li><b>放松：</b>走动一分钟，拉伸腿、髋和胸。</li>
+</ol>
+<h2>俯卧撑做不起来怎么办</h2>
+<p>改成跪姿俯卧撑，肩膀到膝盖保持一条直线。只要身体接近水平，手肘弯到约 90° KINETIC 照样计数。扶墙或撑在高凳上的俯卧撑不会被计数。<a href="{p}/exercises/push-up-counter/">俯卧撑怎么计数</a>。</p>
+<h2>怎么进阶</h2>
+<ul>
+<li>每组都用标准动作做完了？进入下一周。</li>
+<li>没做完，或者最后几个动作变形了？这一周再练一遍。用 6 周练完也没关系。</li>
+<li>头几周肌肉酸一两天是正常的。刺痛或关节痛不正常，要停下来休息。</li>
+<li>漏了一次？接着做下一次，不要一天练两次补。</li>
+<li>有慢性病、伤病，或者很久没运动了，先问问医生。</li>
+</ul>
+<h2>4 周以后</h2>
+<p>可以继续按第 4 周练并慢慢加次数，或者挑一个挑战：<a href="{p}/guides/30-day-squat-challenge/">30 天深蹲挑战</a>、<a href="{p}/guides/100-push-ups-a-day/">每天 100 个俯卧撑</a>。</p>
+<h2>用 KINETIC 记录</h2>
+<p>每周开始时，把每个动作的每日目标设成表里的总数（第 1 周：开合跳 30、深蹲 16、俯卧撑 10、臀桥 20）。每次计数都会累计到今日总数，完成目标后日历自动打卡。每个动作手机怎么摆见<a href="{p}/guides/phone-placement/">手机怎么摆</a>。</p>
+""",
+            "hant": """
+<h2>計畫表</h2>
+<p>每格是「組數 × 每組次數」，下面的數字是這一次訓練的總數，也就是在 KINETIC 裡要設的每日目標。</p>
+{beginner}
+<h2>一次訓練怎麼做</h2>
+<ol>
+<li><b>熱身 3 分鐘：</b>原地踏步、繞肩、擺臂。</li>
+<li><b>先做站立的動作。</b>手機直立在前方 2–3 公尺，正對你，做開合跳和深蹲。弓箭步時側對手機。</li>
+<li><b>再做地面的動作。</b>把手機放到身體側面的地上，做伏地挺身和臀橋。</li>
+<li><b>組間休息 60–90 秒。</b>需要就多休息一下，要的是動作標準，不是快。</li>
+<li><b>放鬆：</b>走動一分鐘，伸展腿、髖和胸。</li>
+</ol>
+<h2>伏地挺身做不起來怎麼辦</h2>
+<p>改成跪姿伏地挺身，肩膀到膝蓋保持一直線。只要身體接近水平，手肘彎到約 90° KINETIC 照樣計數。扶牆或撐在高凳上的伏地挺身不會被計數。<a href="{p}/exercises/push-up-counter/">伏地挺身怎麼計數</a>。</p>
+<h2>怎麼進階</h2>
+<ul>
+<li>每組都用標準動作做完了？進入下一週。</li>
+<li>沒做完，或者最後幾下動作變形了？這一週再練一遍。用 6 週練完也沒關係。</li>
+<li>頭幾週肌肉痠一兩天是正常的。刺痛或關節痛不正常，要停下來休息。</li>
+<li>漏了一次？接著做下一次，不要一天練兩次補。</li>
+<li>有慢性病、傷病，或者很久沒運動了，先問問醫師。</li>
+</ul>
+<h2>4 週以後</h2>
+<p>可以繼續按第 4 週練並慢慢加次數，或者挑一個挑戰：<a href="{p}/guides/30-day-squat-challenge/">30 天深蹲挑戰</a>、<a href="{p}/guides/100-push-ups-a-day/">每天 100 下伏地挺身</a>。</p>
+<h2>用 KINETIC 記錄</h2>
+<p>每週開始時，把每個動作的每日目標設成表裡的總數（第 1 週：開合跳 30、深蹲 16、伏地挺身 10、臀橋 20）。每次計數都會累計到今日總數，完成目標後日曆自動打卡。每個動作手機怎麼擺見<a href="{p}/guides/phone-placement/">手機怎麼擺</a>。</p>
+""",
+        },
+    },
+    {
         "slug": "rep-counter-apps-compared",
         "title": {
             "en": "Rep Counter Apps Compared (2026): KINETIC, GoodGYM, MyRepsCount and More",
@@ -453,6 +560,17 @@ GUIDES = [
     },
 ]
 
+# 新手计划：(动作 id, 第 1～4 周的 (组数, 每组次数))，None 表示这一周还不做。
+# 依据：完全新手每周 3 练、每个动作 2～3 组、每组 5～15 次，每周只加一组或每组加 1～3 次；
+# 弓步蹲对平衡要求高，第 3 周再加。顺序按手机摆放分：先站立（正对、侧对），再地面
+BEGINNER_PLAN = [
+    ("jumping_jack", [(2, 15), (2, 20), (3, 20), (3, 25)]),
+    ("squat", [(2, 8), (3, 8), (3, 10), (3, 12)]),
+    ("lunge", [None, None, (2, 8), (3, 8)]),
+    ("pushup", [(2, 5), (3, 5), (3, 6), (3, 8)]),
+    ("glute_bridge", [(2, 10), (3, 10), (3, 12), (3, 15)]),
+]
+
 GUIDE_UI = {
     "hub_title": {"en": "KINETIC Guides – Phone Setup, Privacy and Challenges", "zh": "KINETIC 指南", "hant": "KINETIC 指南"},
     "hub_h1": {"en": "Guides", "zh": "指南", "hant": "指南"},
@@ -468,4 +586,6 @@ GUIDE_UI = {
     "th_phone": {"en": "Phone", "zh": "手机摆放", "hant": "手機擺放"},
     "th_rule": {"en": "Counts at", "zh": "判定", "hant": "判定"},
     "used_by": {"en": "Used for", "zh": "适用动作", "hant": "適用動作"},
+    "week": {"en": "Week {n}", "zh": "第 {n} 周", "hant": "第 {n} 週"},
+    "lunge_note": {"en": "alternate legs, each counts", "zh": "左右交替，每次都算", "hant": "左右交替，每次都算"},
 }
