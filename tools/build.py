@@ -12,6 +12,7 @@
 根目录的 /privacy.html、/delete-account.html 被 Google Play 后台和 App 引用，不能改名或删除。
 """
 
+import hashlib
 import html
 import json
 import sys
@@ -64,6 +65,13 @@ SITEMAP: list[str] = []
 
 
 # ---------------------------------------------------------------- 工具函数
+
+def ver(path: str) -> str:
+    """样式和脚本地址带上内容哈希。GitHub Pages 让浏览器缓存 10 分钟，不带版本号的话改了 CSS/JS，
+    看过的人最多 10 分钟内还是旧文件（2026-11-08 修淡入问题时遇到）。"""
+    digest = hashlib.sha256((ROOT / path.lstrip("/")).read_bytes()).hexdigest()[:10]
+    return f"{path}?v={digest}"
+
 
 def esc(s: str) -> str:
     return html.escape(s, quote=True)
@@ -254,7 +262,7 @@ def layout(lang: str, key: str, *, title: str, desc: str, body: str, home: bool 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="{ver("/assets/site.css")}">
 {head_extra}
 </head>
 <body>
@@ -277,7 +285,7 @@ def layout(lang: str, key: str, *, title: str, desc: str, body: str, home: bool 
     <nav aria-label="Footer">{footer}</nav>
   </div>
 </footer>
-<script src="/assets/site.js"></script>
+<script src="{ver("/assets/site.js")}"></script>
 {scripts}
 </body>
 </html>
@@ -626,7 +634,7 @@ def home(lang: str) -> None:
         lang, "", title=H["title"], desc=DESC[lang], body=body, home=True, og_type="website",
         og_title=H["og_title"], og_desc=H["og_desc"],
         head_extra=app_ld(lang) + "\n" + video_ld(lang) + "\n" + faq_ld(lang, home_faq),
-        scripts=f"<script>window.KI18N={i18n};</script>\n<script src=\"/assets/home.js\"></script>",
+        scripts=f"<script>window.KI18N={i18n};</script>\n<script src=\"{ver("/assets/home.js")}\"></script>",
     )
 
 
