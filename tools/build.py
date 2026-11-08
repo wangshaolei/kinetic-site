@@ -119,8 +119,9 @@ def get_button(lang: str, medium: str) -> str:
     return f'<a class="btn btn-pri" href="{url}">{UI["get"][lang]}</a>'
 
 
-# 宣传视频（YouTube 公开视频）。首页用本地封面图占位，点击后才加载 youtube-nocookie 播放器：
-# 不点就不连 YouTube、不设 Cookie，也不拖慢首屏。换视频时改 ID、日期，重新截封面 assets/video-poster.jpg。
+# 宣传视频。官网直接放自己托管的 assets/kinetic-demo.mp4（720p，约 1 MB），不嵌 YouTube 播放器：
+# 大陆访客打不开 YouTube；代理或机房 IP 打开嵌入播放器会被要求「登录以确认你不是机器人」（2026-11-08 实测）。
+# YouTube 只作为外链和结构化数据里的 embedUrl。换视频时改 ID、日期，重新压 mp4、截封面 assets/video-poster.jpg。
 YT_ID = "LaJ3smCEd6w"
 YT_UPLOADED = "2026-11-08"
 YT_TITLE = "AI Rep Counter App – Counts Your Push-ups with Your Phone Camera"
@@ -393,16 +394,16 @@ def video_ld(lang: str) -> str:
         "uploadDate": YT_UPLOADED,
         "duration": "PT33S",
         "embedUrl": f"https://www.youtube-nocookie.com/embed/{YT_ID}",
-        "contentUrl": f"https://www.youtube.com/watch?v={YT_ID}",
+        "contentUrl": BASE + "/assets/kinetic-demo.mp4",
     })
 
 
 def video_block(lang: str) -> str:
     play = esc(HOME["video_play"][lang])
     return (
-        f'<figure class="promo rv d2"><button type="button" class="yt" data-yt="{YT_ID}" aria-label="{play}">'
-        f'<img src="/assets/video-poster.jpg" width="1280" height="720" loading="lazy" alt="">'
-        f'<span class="play" aria-hidden="true"></span></button>'
+        f'<figure class="promo rv d2"><video controls playsinline preload="none" width="1280" height="720" '
+        f'poster="/assets/video-poster.jpg" aria-label="{play}">'
+        f'<source src="/assets/kinetic-demo.mp4" type="video/mp4"></video>'
         f'<figcaption>{HOME["video_cap"][lang]} '
         f'<a href="https://www.youtube.com/watch?v={YT_ID}" rel="noopener">YouTube&nbsp;↗</a></figcaption></figure>'
     )
