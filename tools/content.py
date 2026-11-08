@@ -258,6 +258,13 @@ HOME = {
     "shots_eyebrow": {"en": "07 · Inside the app", "zh": "07 · App 内页", "hant": "07 · App 內頁"},
     "shots_h2": {"en": "A cyber-clean workout HUD.", "zh": "干净利落的赛博训练仪表盘。", "hant": "俐落的賽博訓練儀表板。"},
     "shots_aria": {"en": "App screenshots, scroll horizontally", "zh": "App 截图，可横向滑动", "hant": "App 截圖，可橫向滑動"},
+    # 宣传视频（YouTube），首页截图下方，点击才加载播放器
+    "video_cap": {
+        "en": "30-second demo: live push-up counting, the finished set and the shareable hero card.",
+        "zh": "30 秒演示：俯卧撑实时计数、练完的结算页和可分享的达人卡。",
+        "hant": "30 秒示範：伏地挺身即時計數、練完的結算頁和可分享的達人卡。",
+    },
+    "video_play": {"en": "Play the 30-second demo video", "zh": "播放 30 秒演示视频", "hant": "播放 30 秒示範影片"},
     "shots": {
         "en": [("Today at a glance", "KINETIC home screen showing today's reps, a 12-day streak and the Start Scan button"),
                ("Live rep counting", "KINETIC counting squats with a green skeleton overlay and a rep counter"),

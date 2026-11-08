@@ -146,3 +146,14 @@
     setup() { document.getElementById('setup').classList.add('in'); }
   };
 })();
+
+// 宣传视频：点击后才换成 youtube-nocookie 播放器（不点不连 YouTube）
+document.querySelectorAll('.promo .yt').forEach(b => b.addEventListener('click', () => {
+  const f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0&playsinline=1';
+  f.title = b.getAttribute('aria-label');
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  f.referrerPolicy = 'strict-origin-when-cross-origin';
+  b.replaceWith(f);
+}));

@@ -38,7 +38,7 @@ REPLY_DAYS = 7
 YEAR = 2026
 
 # 内容页的「最后更新」和 sitemap 的 lastmod。改了页面内容时一起改。
-UPDATED = "2026-11-03"
+UPDATED = "2026-11-08"
 
 # 正式版上架后改成 True：「即将上架」换成 Google Play 下载按钮。
 # 有 assets/badges/google-play-{en,zh,hant}.png 时用图片，没有时用文字按钮。图片是 Google 官方徽章
@@ -117,6 +117,13 @@ def get_button(lang: str, medium: str) -> str:
         return (f'<a class="play-badge" href="{url}"><img src="/assets/badges/{badge.name}" '
                 f'alt="{esc(UI["get"][lang])}" width="188" height="56"></a>')
     return f'<a class="btn btn-pri" href="{url}">{UI["get"][lang]}</a>'
+
+
+# 宣传视频（YouTube 公开视频）。首页用本地封面图占位，点击后才加载 youtube-nocookie 播放器：
+# 不点就不连 YouTube、不设 Cookie，也不拖慢首屏。换视频时改 ID、日期，重新截封面 assets/video-poster.jpg。
+YT_ID = "LaJ3smCEd6w"
+YT_UPLOADED = "2026-11-08"
+YT_TITLE = "AI Rep Counter App – Counts Your Push-ups with Your Phone Camera"
 
 
 def ld(obj: dict) -> str:
@@ -376,6 +383,31 @@ def app_ld(lang: str) -> str:
     })
 
 
+def video_ld(lang: str) -> str:
+    return ld({
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": YT_TITLE,
+        "description": HOME["video_cap"][lang],
+        "thumbnailUrl": BASE + "/assets/video-poster.jpg",
+        "uploadDate": YT_UPLOADED,
+        "duration": "PT33S",
+        "embedUrl": f"https://www.youtube-nocookie.com/embed/{YT_ID}",
+        "contentUrl": f"https://www.youtube.com/watch?v={YT_ID}",
+    })
+
+
+def video_block(lang: str) -> str:
+    play = esc(HOME["video_play"][lang])
+    return (
+        f'<figure class="promo rv d2"><button type="button" class="yt" data-yt="{YT_ID}" aria-label="{play}">'
+        f'<img src="/assets/video-poster.jpg" width="1280" height="720" loading="lazy" alt="">'
+        f'<span class="play" aria-hidden="true"></span></button>'
+        f'<figcaption>{HOME["video_cap"][lang]} '
+        f'<a href="https://www.youtube.com/watch?v={YT_ID}" rel="noopener">YouTube&nbsp;↗</a></figcaption></figure>'
+    )
+
+
 def home(lang: str) -> None:
     H = {k: v[lang] for k, v in HOME.items()}
     line1, line2 = H["h1"]
@@ -560,6 +592,7 @@ def home(lang: str) -> None:
     <p class="eyebrow rv">{H["shots_eyebrow"]}</p>
     <h2 class="rv d1" style="margin-top:14px">{H["shots_h2"]}</h2>
     <div class="reel" tabindex="0" aria-label="{esc(H["shots_aria"])}">{shots}</div>
+    {video_block(lang)}
   </div>
 </section>
 
@@ -591,7 +624,7 @@ def home(lang: str) -> None:
     layout(
         lang, "", title=H["title"], desc=DESC[lang], body=body, home=True, og_type="website",
         og_title=H["og_title"], og_desc=H["og_desc"],
-        head_extra=app_ld(lang) + "\n" + faq_ld(lang, home_faq),
+        head_extra=app_ld(lang) + "\n" + video_ld(lang) + "\n" + faq_ld(lang, home_faq),
         scripts=f"<script>window.KI18N={i18n};</script>\n<script src=\"/assets/home.js\"></script>",
     )
 

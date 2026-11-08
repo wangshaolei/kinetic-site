@@ -37,6 +37,7 @@ python3 tools/build.py ../rep-counter/app/lib/l10n
 | 运营方、邮箱、生效日期 | `tools/build.py` 顶部，要和 App 的 `AppLegal` 一致 |
 | 「最后更新」日期、sitemap 日期 | `tools/build.py` 的 `UPDATED` |
 | 下载按钮（已开启，用 `assets/badges/` 里的 Google 官方徽章）；改回「即将上架」 | `tools/build.py` 的 `PLAY_LIVE` |
+| 首页宣传视频（YouTube ID、上传日期） | `tools/build.py` 的 `YT_ID`、`YT_UPLOADED`；换视频时重截 `assets/video-poster.jpg` |
 | 样式 / 首页动效 | `assets/site.css` / `assets/home.js` |
 
 App 里改了动作的默认角度（`app/lib/domain/models/exercise.dart`），`tools/content.py` 的 `EXERCISES` 要同步改。
@@ -48,6 +49,7 @@ App 里改了动作的默认角度（`app/lib/domain/models/exercise.dart`），
 | `assets/shot-1~4.jpg` | 英文首页截图、结构化数据 | rep-counter `docs/store/listing/screenshots/en-US/`，缩到 540×960 |
 | `assets/zh/shot-1~4.jpg`、`assets/zh-hant/shot-1~4.jpg` | 中文首页截图 | 同上 `zh-CN/`、`zh-TW/` |
 | `assets/og-1200x630.png`、`assets/zh/og-1200x630.png`、`assets/zh-hant/og-1200x630.png` | 分享卡片图（某种语言没有时退回简中、英文） | 英文是设计稿；简中由商店置顶大图加边得到；繁中是 rep-counter `docs/store/listing/feature-graphic/og-zh-hant-1200x630.png` |
+| `assets/video-poster.jpg` | 首页宣传视频封面（点了才加载 YouTube） | rep-counter `docs/store/listing/video/kinetic-promo-30s.mp4` 第 7.5 秒截图，1280×720 |
 | `assets/badges/google-play-{en,zh,hant}.png` | Google Play 官方下载徽章（删掉则显示文字按钮） | https://play.google.com/intl/en_us/badges/ |
 
 ## 本地预览
