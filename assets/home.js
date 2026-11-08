@@ -34,17 +34,21 @@
   /* ---------- section observers ---------- */
   const visible = new Set();
   const once = new Set();
+  // 「进入」= 露出自身 28%，或占满视口高度的 28%。只按自身比例算的话，比视口高 3.5 倍以上的区块
+  // （手机上的动作区 3000px）永远到不了 28%，整块一直透明；开发者工具响应式模式视口矮时整页都不显示。
+  const enough = (e) => e.isIntersecting && (e.intersectionRatio >= .28 || e.intersectionRect.height >= innerHeight * .28);
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       const fx = e.target.dataset.fx;
-      if (e.isIntersecting) {
+      if (!e.isIntersecting) { visible.delete(fx); return; }
+      if (enough(e)) {
         e.target.classList.add('in'); visible.add(fx);
         if (!once.has(fx)) { once.add(fx); start[fx] && start[fx](); }
         const id = e.target.id; railLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + id));
         navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + id));
-      } else visible.delete(fx);
+      }
     });
-  }, { threshold: .28 });
+  }, { threshold: [0, .02, .05, .1, .15, .2, .28] });
   document.querySelectorAll('.sec').forEach(s => io.observe(s));
 
   const countUp = (el, to, ms, fmt) => {
